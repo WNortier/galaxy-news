@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="greet.css">
+    <title>Document</title>
+</head>
+<div class="container">
+    <div class="header">
+        <h1>Warwicks Greeting Widget</h1>
+    </div>
+
+    <body class="main clearfix">
+        <div class="section-one">
+            <h1>Main content one</h1>
+            this is the main content 1
+            <button class="theBoxes" type="button" name="button" style="font-family:monospace;">Name</button>
+
+            <input class="nameText" id="nameText" type="text" name="thePersonsName" value="" placeholder="">
+
+            <div class="theBoxes entryCounter" id="entryCounter" type="text" name=""style="font-family:monospace; position: relative; top: 0px" value=""></div>
+
+        </div>
+
+        <div class="radioButtons">
+            <form action="languageSelected.html" method="get" onsubmit="return inputChecker()">
+
+                <input type="radio" name="aRadioBut" id="englishOption" class="radioSelectors" value="English">
+                <span class="label-body" style="padding:1em;color:rgb(29, 28, 29);  font-weight: bold">English</span>
+
+
+                <input type="radio" name="aRadioBut" id="afrikaansOption" class="radioSelectors" value="Afrikaans">
+                <span class="label-body" style="padding:1em;color:rgb(29, 28, 29);  font-weight: bold">Afrikaans</span>
+
+                <input type="radio" name="aRadioBut" id="xhosaOption" class="radioSelectors" value="Xhosa">
+                <span class="label-body" style="padding:1em;color:rgb(29, 28, 29); font-weight: bold">Xhosa</span>
+
+            </form>
+        </div>
+
+
+        <button class="theBoxes greetingGenerator" id="greetingGenerator" type="button" name="button"
+            style="font-family:monospace;">Greet Me</button>
+        <button class="theBoxes resetMe" type="button" name="button"
+            style="font-family:monospace; margin-top: 10px;">Reset</button>
+            
+            <div class="greetText" id="greetText"style="position: relative; top: 50px"><h4></h4></div>
+            <div class="errorText" id="errorText" style="position: relative; top: 50px"><h5></h5></div>
+
+    </body>
+   
+    <script src="factoryfunctionsgreet.js"></script>
+    <script src="greet.js"></script>
+    
+    <div class="footer">
+            
+        <h4>@footer inc</h4>
+    </div>
+
+</div>
+
+</html>
