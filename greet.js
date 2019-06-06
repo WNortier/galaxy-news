@@ -9,17 +9,36 @@ var greetTextField = document.querySelector(".greetText");
 var errorTextField = document.querySelector(".errorText");
 var counterDisplayer = document.querySelector(".entryCounter");
 
+
+
+
 if(localStorage['namesPassed']){
+
+    //retrieving names from localStorage before the function is executed to know who was greeted before
+    
     var nameList = JSON.parse(localStorage.getItem("namesPassed"));
     console.log(nameList)
+   
     }else{
         var nameList;
     }
-    var factoryVariable = Greeting(nameList); 
-localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
     
+    
+
+    var factoryVariable = Greeting(nameList); 
+
+
+
+
+//localStorage key is set to the names(converted to a string from an object) retrieved from factoryVariable.names() 
+//the factory: function whosBeenGreeted() {return namesGreeted}
 var greetData = JSON.parse(localStorage.getItem("namesPassed"));
-// var onlyKeys = Object.keys(greetData);
+
+localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
+
+    
+
+// 
 window.onload = function(){
     counterDisplayer.innerHTML = factoryVariable.count();
 }
@@ -41,7 +60,9 @@ function fullReset() {
 
 function inputChecker() {
 
-    
+
+   
+        
     // document.getElementById("greetText").innerHTML = "";
     // document.getElementById("errorText").innerHTML = "";
 
@@ -52,8 +73,18 @@ function inputChecker() {
     else {
         var language = "";
     }
-      
-    factoryVariable.add(nameTextField.value)
+    
+    if (nameTextField.value.length == 0 || language == "") {
+        counterDisplayer.innerHTML = 0;
+    }
+        else {
+            factoryVariable.add(nameTextField.value)
+        }
+                
+
+
+    
+   
     
     factoryVariable.language(language)
     
@@ -71,6 +102,9 @@ function inputChecker() {
     if (language.length != 0  && nameTextField.value.length != 0){
         document.getElementById("errorText").innerHTML = "";
     }
+
+
+    
     // counterDisplayer.innerHTML = localStorage['greetings']
 }
 

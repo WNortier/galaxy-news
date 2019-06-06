@@ -1,6 +1,5 @@
 function Greeting(nameList) {
     // var namesGreeted = onlyKeys || {};
-
     var theLanguage = '';
     var namesGreeted = nameList || {};
     var errorMessage = "";
@@ -13,10 +12,9 @@ function Greeting(nameList) {
 
         if (languageInputChecker === "English" || "Afrikaans" || "Xhosa") {
             theLanguage = languageInputChecker;
-            console.log(theLanguage);
+            //console.log(theLanguage);
         }
         return theLanguage;
-
     }
 
     function greetName(name) {
@@ -34,20 +32,41 @@ function Greeting(nameList) {
     }
 
     // //whosBeenGreeted and counterValue work in tandem - the amount of people greeted should equal the count
+
+
+
     function addToGreetedObject(name) {
         //var aNameEntry = namesGreeted[i]
-        if (namesGreeted[name] === undefined) {
-            console.log("im working")
-            namesGreeted[name] = 0;
 
+       
+      if (namesGreeted[name] === undefined){
+            //console.log("im working")
+
+              namesGreeted[name] = 0;
+              
         }
 
-        // for (var i in onlyKeys) {
-        //     var aKey = onlyKeys[i].toLowerCase();
-        //     if (aKey == x.toLowerCase()) {
-        //     };
+       
+           
+
     }
 
+   
+
+
+    // if (namesGreeted[name] == "" || theLanguage == "") {
+    //     errorMessageProvider(name);}
+
+
+    // function addToGreetedObject(name) {
+    //     //var aNameEntry = namesGreeted[i]
+    //     if (namesGreeted[name] === undefined) {
+    //         //console.log("im working")
+    //         namesGreeted[name] = 0;
+
+    //     }
+
+    // }
 
 
     function whosBeenGreeted() {
@@ -56,8 +75,15 @@ function Greeting(nameList) {
 
 
     function counterValue() {
+        var lowerCaseEntries = [];
         var theCount = Object.keys(namesGreeted);
-        return theCount.length;
+        for (var i in theCount) {
+            var element = theCount[i];
+            lowerCaseEntries = element.toLowerCase();
+                    }
+        //console.log(typeof theCount)
+        return lowerCaseEntries.length;
+        
     }
 
     function errorMessageProvider(name) {
@@ -65,19 +91,14 @@ function Greeting(nameList) {
         let character = "";
         character = name.charAt(0);
         if (name.length == 0) {
-
             errorMessage = "Please enter a name!";
         }
-
         else if (!isNaN(character * 1)) {
-
             errorMessage = 'Names cannot contain a number!';
         }
-
         else if (theLanguage == '') {
             errorMessage = "Please select a language!"
         }
-
         return errorMessage
     }
 
@@ -91,8 +112,10 @@ function Greeting(nameList) {
         count: counterValue,
         greet: greetName,
         error: errorMessageProvider,
-        clear: clearNames
+        clear: clearNames,
+        //blocker: noInputBlocker
     }
 
 
 }
+
