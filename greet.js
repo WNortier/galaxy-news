@@ -8,55 +8,42 @@ var resetButton = document.querySelector(".resetMe");
 var greetTextField = document.querySelector(".greetText");
 var errorTextField = document.querySelector(".errorText");
 var counterDisplayer = document.querySelector(".entryCounter");
-var amountOfGreetings = 0;
-var factoryVariable = Greeting(); 
-var namesGreeted = nameList || {};
 
 if(localStorage['namesPassed']){
-    var nameList =  JSON.parse(localStorage.getItem("namesPassed"));
+    var nameList = JSON.parse(localStorage.getItem("namesPassed"));
+    console.log(nameList)
     }else{
         var nameList;
     }
-
-    window.onload = function(){
-        counterDisplayer.innerHTML = factoryVariable.count(amountOfGreetings);
-        console.log(factoryVariable.count(amountOfGreetings));
-    }
-
-//var GreetInstance = require('./factoryfunctionsgreet.js');
-// if ((document.querySelector("#englishOption").checked == false && document.querySelector("#afrikaansOption").checked == false && document.querySelector("#xhosaOption").checked == false)){
-//     document.getElementById("errorText").innerHTML = "Please select a language!";
-// }
-
-
-
+    var factoryVariable = Greeting(nameList); 
+localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
+    
+var greetData = JSON.parse(localStorage.getItem("namesPassed"));
+// var onlyKeys = Object.keys(greetData);
+window.onload = function(){
+    counterDisplayer.innerHTML = factoryVariable.count();
+}
 
 function clearIt() {
     Object.keys(namesGreeted).forEach(k => delete namesGreeted[k])
 }
 
-
-
 function fullReset() {
-    amountOfGreetings = 0;
+    counterDisplayer.innerHTML = 0;
     localStorage.clear();
-    localStorage['greetings'] = 0;
-    console.log(localStorage['greetings'])
-    localStorage.setItem('namesPassed', JSON.stringify(namesGreeted));
-    counterDisplayer.innerHTML = localStorage['greetings']
     document.getElementById("greetingGenerator").disabled = false;
-    clearIt();
+    factoryVariable.clear();
     document.getElementById("nameText").value = "";
     document.getElementById("greetText").innerHTML = "";
     document.getElementById("errorText").innerHTML = "";
-    console.log(localStorage)
-
 }
 
 
 function inputChecker() {
-    document.getElementById("greetText").innerHTML = "";
-    document.getElementById("errorText").innerHTML = "";
+
+    
+    // document.getElementById("greetText").innerHTML = "";
+    // document.getElementById("errorText").innerHTML = "";
 
     var checkedRadioBtn = document.querySelector("input[name='aRadioBut']:checked");
     if (checkedRadioBtn) {
@@ -66,38 +53,26 @@ function inputChecker() {
         var language = "";
     }
       
-
-    // if (nameTextField.value.length > 0 && (document.querySelector("#englishOption").checked == false && document.querySelector("#afrikaansOption").checked == false && document.querySelector("#xhosaOption").checked == false) {
-    //     errorTextField.innerHTML = "Please select a language!";
-    // }
-    
     factoryVariable.add(nameTextField.value)
-    factoryVariable.language(language)
-    console.log(factoryVariable.language(language))
-    //factoryVariable.greet(nameTextField.value)
-    console.log(factoryVariable.greet(nameTextField.value))
-   
-    // factoryVariable.add(nameTextField.value.trim());
-    greetTextField.innerHTML = factoryVariable.greet(nameTextField.value.trim());
-    counterDisplayer.innerHTML = factoryVariable.count(amountOfGreetings);
-    console.log(factoryVariable.count(amountOfGreetings))
-
-    errorTextField.innerHTML = factoryVariable.error(nameTextField.value.trim());
     
-    localStorage['greetings'] = amountOfGreetings;
-    counterDisplayer.innerHTML = localStorage['greetings']
+    factoryVariable.language(language)
+    
+    greetTextField.innerHTML = factoryVariable.greet(nameTextField.value.trim());
+   
+    errorTextField.innerHTML = factoryVariable.error(nameTextField.value.trim()); 
+
+    counterDisplayer.innerHTML = factoryVariable.count();
     
     localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
-    greetData = JSON.parse(localStorage.getItem("namesPassed"));
-    var onlyKeys = Object.keys(greetData);
- 
-    //   else if (englishChosen == false && afrikaansChosen == false && xhosaChosen == false) {
-  
-
+    
+    if (language.length != 0  && nameTextField.value.length == 0){
+        document.getElementById("greetText").innerHTML = "";
+    }
+    if (language.length != 0  && nameTextField.value.length != 0){
+        document.getElementById("errorText").innerHTML = "";
+    }
+    // counterDisplayer.innerHTML = localStorage['greetings']
 }
-
-
-
 
 greetMeButton.addEventListener('click', inputChecker);
 resetButton.addEventListener('click', fullReset);

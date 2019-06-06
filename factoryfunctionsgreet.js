@@ -1,19 +1,19 @@
-function Greeting() {
+function Greeting(nameList) {
     // var namesGreeted = onlyKeys || {};
+
     var theLanguage = '';
-    var language; 
     var namesGreeted = nameList || {};
-    
+    var errorMessage = "";
+    //var amountOfGreetingsMade;
+    // var amountOfGreetings = 0; 
+
     function languageChoice(language) {
         var languageInputChecker = language;
 
 
-        if (languageInputChecker === "English") {
+        if (languageInputChecker === "English" || "Afrikaans" || "Xhosa") {
             theLanguage = languageInputChecker;
-        } else if (languageInputChecker === "Afrikaans") {
-            theLanguage = languageInputChecker;
-        } else if (languageInputChecker === "Xhosa") {
-            theLanguage = languageInputChecker;
+            console.log(theLanguage);
         }
         return theLanguage;
 
@@ -21,7 +21,7 @@ function Greeting() {
 
     function greetName(name) {
         var greeting = '';
-        character = '';
+        let character = '';
         character = name.charAt(0).toUpperCase() + (name.slice(1)).toLowerCase();
         if (theLanguage === "English") {
             greeting = "Hello, " + character;
@@ -33,69 +33,57 @@ function Greeting() {
         return greeting
     }
 
-
     // //whosBeenGreeted and counterValue work in tandem - the amount of people greeted should equal the count
     function addToGreetedObject(name) {
-                   //var aNameEntry = namesGreeted[i]
-            if (namesGreeted[name] === undefined) {
-                amountOfGreetings++
-                namesGreeted[name] = 0;
-            }
-            // for (var i in onlyKeys) {
-            //     var aKey = onlyKeys[i].toLowerCase();
-                //     if (aKey == x.toLowerCase()) {
-                //     };
-                console.log(namesGreeted)
-                    }
-                    
-    
+        //var aNameEntry = namesGreeted[i]
+        if (namesGreeted[name] === undefined) {
+            console.log("im working")
+            namesGreeted[name] = 0;
 
-    function whosBeenGreeted(nameList) {
-        var thoseGreeted = ""
-        if (nameList) {
-            thoseGreeted = nameList;
-            console.log(thoseGreeted)
         }
-        return thoseGreeted
+
+        // for (var i in onlyKeys) {
+        //     var aKey = onlyKeys[i].toLowerCase();
+        //     if (aKey == x.toLowerCase()) {
+        //     };
     }
 
 
-    function counterValue(amountOfGreetings) {
-           var theCount = amountOfGreetings;
-            console.log(theCount)
-            return theCount
-        }
-    
+
+    function whosBeenGreeted() {
+        return namesGreeted
+    }
+
+
+    function counterValue() {
+        var theCount = Object.keys(namesGreeted);
+        return theCount.length;
+    }
+
     function errorMessageProvider(name) {
-        var errorMessage = "";
-        var character = "";
+        // var errorMessage = "";
+        let character = "";
         character = name.charAt(0);
-        //console.log(x)
-        console.log(theLanguage)
         if (name.length == 0) {
+
             errorMessage = "Please enter a name!";
-        } else if (!isNaN(character * 1)) {
+        }
+
+        else if (!isNaN(character * 1)) {
+
             errorMessage = 'Names cannot contain a number!';
         }
-        else if (theLanguage == ''){
+
+        else if (theLanguage == '') {
             errorMessage = "Please select a language!"
         }
-        //console.log(theLanguage)
 
-        // } else if (character == character.toUpperCase()) {
-        //     // document.getElementById("errorText").innerHTML = "";
-        //     greeting();
-        // } else if (character == character.toLowerCase()) {
-        //     x = '';
-        //     x = nameTextField.value.charAt(0).toUpperCase() + nameTextField.value.slice(1);
-        //     greeting()
-        // }
-    
+        return errorMessage
+    }
 
-    return errorMessage
-}
-
-
+    function clearNames(){
+        namesGreeted = {};
+    }
     return {
         language: languageChoice,
         add: addToGreetedObject,
@@ -103,8 +91,8 @@ function Greeting() {
         count: counterValue,
         greet: greetName,
         error: errorMessageProvider,
+        clear: clearNames
     }
 
-    
+
 }
-    

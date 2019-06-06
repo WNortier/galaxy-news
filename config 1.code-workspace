@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "C:\\Users\\user\\AppData\\Local\\Packages\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\LocalState\\rootfs\\root\\greetings\\mocha-tests"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Greeting_factory_function"
+	}
+}
