@@ -96,14 +96,19 @@ function inputChecker() {
     counterDisplayer.innerHTML = factoryVariable.count();
     
     localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
-    
+   
+    // if (language.length == 0  && nameTextField.value.length == 0){
+    //     document.getElementById("greetText").innerHTML = "";
+    // }
     if (language.length != 0  && nameTextField.value.length == 0){
         document.getElementById("greetText").innerHTML = "";
     }
     if (language.length != 0  && nameTextField.value.length != 0){
         document.getElementById("errorText").innerHTML = "";
-    }
 
+    }
+ 
+   
 
     
     // counterDisplayer.innerHTML = localStorage['greetings']

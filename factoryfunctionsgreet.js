@@ -1,9 +1,14 @@
+
+
+
+
 function Greeting(nameList) {
     // var namesGreeted = onlyKeys || {};
     var theLanguage = '';
     var namesGreeted = nameList || {};
     var errorMessage = "";
     var greeting = '';
+    const regex = /\d/;
     //var amountOfGreetingsMade;
     // var amountOfGreetings = 0; 
 
@@ -22,35 +27,45 @@ function Greeting(nameList) {
        
         let character = '';
         character = name.charAt(0).toUpperCase() + (name.slice(1)).toLowerCase();
-        numberCheck = name.charAt(0);
-        if (!isNaN(numberCheck * 1)) {
-            // errorMessage = 'Names cannot contain a number!';
+        // numberCheck = name.charAt(0);
+
+        // if (!isNaN(numberCheck * 1)  && theLanguage.length != 0) {
+        //     // errorMessage = 'Names cannot contain a number!';
+        //     greeting = "Names cannot contain a number!";
+        // }
+        var numberTest = regex.test(name);
+    
+        if (numberTest ===true) {
             greeting = "Names cannot contain a number!";
         }
-        else if (theLanguage === "English") {
+        
+        else if (theLanguage == "English") {
             greeting = "Hello, " + character;
-        } else if (theLanguage === "Afrikaans") {
+        } else if (theLanguage == "Afrikaans") {
             greeting = "Hallo, " + character;
-        } else if (theLanguage === "Xhosa") {
+        } else if (theLanguage == "Xhosa") {
             greeting = "Molo, " + character;
         }
         return greeting
     }
-
-    // language: languageChoice,
-    //     add: addToGreetedObject,
-    //     names: whosBeenGreeted,
-    //     count: counterValue,
-    //     greet: greetName,
-    //     error: errorMessageProvider,
-    //     clear: clearNames,
-
+    // var numberTest = regex.test(name);
+    // if (name) {
+    //     if (numberTest ===true) {
+    //         greeting = "Names cannot contain a number!";
+    //     }
 
 
     function addToGreetedObject(name) {
         //var aNameEntry = namesGreeted[i]
-        numberCheck = name.charAt(0);
-        if (!isNaN(numberCheck * 1)) {
+
+        var numberTest = regex.test(name);
+    
+        if (numberTest ===true) {
+            // greeting = "Names cannot contain a number!";
+        // }
+
+        // numberCheck = name.charAt(0);
+        // if (!isNaN(numberCheck * 1)) {
             // errorMessage = 'Names cannot contain a number!';
             greeting = "Names cannot contain a number!";
             errorMessageProvider(name)
@@ -65,30 +80,12 @@ function Greeting(nameList) {
 
     }
 
-   
-
-
-    // if (namesGreeted[name] == "" || theLanguage == "") {
-    //     errorMessageProvider(name);}
-
-
-    // function addToGreetedObject(name) {
-    //     //var aNameEntry = namesGreeted[i]
-    //     if (namesGreeted[name] === undefined) {
-    //         //console.log("im working")
-    //         namesGreeted[name] = 0;
-
-    //     }
-
-    // }
-
-
     function whosBeenGreeted() {
         return namesGreeted
     }
 
 
-    function counterValue(name) {
+    function counterValue() {
         //var lowerCaseEntries = [];
         result = Object.keys(namesGreeted);
         // const result = Object.keys(nameWithTimesGreetedMixedCase)
@@ -128,4 +125,24 @@ function Greeting(nameList) {
 
 
 }
+
+
+
+
+   
+
+
+    // if (namesGreeted[name] == "" || theLanguage == "") {
+    //     errorMessageProvider(name);}
+
+
+    // function addToGreetedObject(name) {
+    //     //var aNameEntry = namesGreeted[i]
+    //     if (namesGreeted[name] === undefined) {
+    //         //console.log("im working")
+    //         namesGreeted[name] = 0;
+
+    //     }
+
+    // }
 
