@@ -35,10 +35,11 @@ if(localStorage['namesPassed']){
 var greetData = JSON.parse(localStorage.getItem("namesPassed"));
 
 localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
-
-    
-
 // 
+
+
+
+
 window.onload = function(){
     counterDisplayer.innerHTML = factoryVariable.count();
 }

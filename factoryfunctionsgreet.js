@@ -3,6 +3,7 @@ function Greeting(nameList) {
     var theLanguage = '';
     var namesGreeted = nameList || {};
     var errorMessage = "";
+    var greeting = '';
     //var amountOfGreetingsMade;
     // var amountOfGreetings = 0; 
 
@@ -18,10 +19,15 @@ function Greeting(nameList) {
     }
 
     function greetName(name) {
-        var greeting = '';
+       
         let character = '';
         character = name.charAt(0).toUpperCase() + (name.slice(1)).toLowerCase();
-        if (theLanguage === "English") {
+        numberCheck = name.charAt(0);
+        if (!isNaN(numberCheck * 1)) {
+            // errorMessage = 'Names cannot contain a number!';
+            greeting = "Names cannot contain a number!";
+        }
+        else if (theLanguage === "English") {
             greeting = "Hello, " + character;
         } else if (theLanguage === "Afrikaans") {
             greeting = "Hallo, " + character;
@@ -31,23 +37,31 @@ function Greeting(nameList) {
         return greeting
     }
 
-    // //whosBeenGreeted and counterValue work in tandem - the amount of people greeted should equal the count
+    // language: languageChoice,
+    //     add: addToGreetedObject,
+    //     names: whosBeenGreeted,
+    //     count: counterValue,
+    //     greet: greetName,
+    //     error: errorMessageProvider,
+    //     clear: clearNames,
 
 
 
     function addToGreetedObject(name) {
         //var aNameEntry = namesGreeted[i]
-
-       
-      if (namesGreeted[name] === undefined){
-            //console.log("im working")
-
-              namesGreeted[name] = 0;
-              
+        numberCheck = name.charAt(0);
+        if (!isNaN(numberCheck * 1)) {
+            // errorMessage = 'Names cannot contain a number!';
+            greeting = "Names cannot contain a number!";
+            errorMessageProvider(name)
         }
 
-       
-           
+      else if (namesGreeted[name] === undefined){
+            //console.log("im working")
+
+              namesGreeted[name.toLowerCase()] = 0;
+              
+        }
 
     }
 
@@ -74,17 +88,13 @@ function Greeting(nameList) {
     }
 
 
-    function counterValue() {
-        var lowerCaseEntries = [];
-        var theCount = Object.keys(namesGreeted);
-        for (var i in theCount) {
-            var element = theCount[i];
-            lowerCaseEntries = element.toLowerCase();
-                    }
-        //console.log(typeof theCount)
-        return lowerCaseEntries.length;
-        
+    function counterValue(name) {
+        //var lowerCaseEntries = [];
+        result = Object.keys(namesGreeted);
+        // const result = Object.keys(nameWithTimesGreetedMixedCase)
+        return result.length
     }
+     
 
     function errorMessageProvider(name) {
         // var errorMessage = "";
@@ -93,9 +103,9 @@ function Greeting(nameList) {
         if (name.length == 0) {
             errorMessage = "Please enter a name!";
         }
-        else if (!isNaN(character * 1)) {
-            errorMessage = 'Names cannot contain a number!';
-        }
+        // else if (!isNaN(character * 1)) {
+        //     errorMessage = 'Names cannot contain a number!';
+        // }
         else if (theLanguage == '') {
             errorMessage = "Please select a language!"
         }
