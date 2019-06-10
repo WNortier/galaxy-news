@@ -45,6 +45,10 @@ function Greeting(nameList) {
         //     greeting = "Names cannot contain a number!";
         // }
         var numberTest = regex.test(name);
+
+        if (language == '') {
+            errorMessage = "Please select a language!"
+        }
     
         if (numberTest ===true) {
             greeting = "Names cannot contain a number!";
@@ -112,7 +116,7 @@ function Greeting(nameList) {
 
     function errorMessageProvider(name, language) {
         // var errorMessage = "";
-        let character = "";
+        //let character = "";
         character = name.charAt(0);
         if (name.length == 0) {
             errorMessage = "Please enter a name!";
@@ -120,9 +124,7 @@ function Greeting(nameList) {
         // else if (!isNaN(character * 1)) {
         //     errorMessage = 'Names cannot contain a number!';
         // }
-        else if (language == '') {
-            errorMessage = "Please select a language!"
-        }
+        
         return errorMessage
     }
 
