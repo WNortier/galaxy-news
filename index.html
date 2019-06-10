@@ -9,15 +9,17 @@
     <title>Document</title>
     
 </head>
-<div class="container">
-    <div class="header">
-        <h1>Warwicks Greeting Widget</h1>
-    </div>
+<body>
+        <div class="topdiv"><p>Greetings Earthling</p></div>
 
-    <body class="main clearfix">
-        <div class="section-one">
-            <h1>Main content one</h1>
-            this is the main content 1
+
+
+    <header id="showcase">
+        <h1 style="color:rgb(92, 86, 92) ">Warwick's Greeting Widget</h1>
+      
+                <div class="inputarea" style="margin-bottom: 5px">
+            <h1></h1>
+           Choose a language and type a name to perform a greeting!
             <button class="theBoxes" type="button" name="button" style="font-family:monospace;">Name</button>
 
             <input class="nameText" id="nameText" type="text" name="thePersonsName" value="" placeholder="">
@@ -26,8 +28,8 @@
 
         </div>
 
-        <div class="radioButtons">
-            <form action="languageSelected.html" method="get" onsubmit="return inputChecker()">
+       
+            <div class="radioButtons"form action="languageSelected.html" method="get" onsubmit="return inputChecker()">
 
                 <input type="radio" name="aRadioBut" id="englishOption" class="radioSelectors" value="English">
                 <span class="label-body" style="padding:1em;color:rgb(29, 28, 29);  font-weight: bold">English</span>
@@ -39,8 +41,7 @@
                 <input type="radio" name="aRadioBut" id="xhosaOption" class="radioSelectors" value="Xhosa">
                 <span class="label-body" style="padding:1em;color:rgb(29, 28, 29); font-weight: bold">Xhosa</span>
 
-            </form>
-        </div>
+            </div>
 
 
         <button class="theBoxes greetingGenerator" id="greetingGenerator" type="button" name="button"
@@ -50,17 +51,19 @@
             
             <div class="greetText" id="greetText"style="position: relative; top: 50px"><h4></h4></div>
             <div class="errorText" id="errorText" style="position: relative; top: 50px"><h5></h5></div>
+            </header>
 
-    </body>
-   
-    <script src="factoryfunctionsgreet.js"></script>
-    <script src="greet.js"></script>
+    </div>
     
-    <div class="footer">
-            
-        <h4>@footer inc</h4>
+    <div class = "section-b">
+
+<div class="box2" style="text-align: center;font-weight:bold; font-size:20px">Welcome To The Future</div>
+<div class="box3" style="display: flex; flex-direction: flex-end;"></div>
     </div>
 
-</div>
+</body>
+    <script src="factoryfunctionsgreet.js"></script>
+    <script src="greet.js"></script>
+
 
 </html>

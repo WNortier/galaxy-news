@@ -44,6 +44,20 @@ window.onload = function(){
     counterDisplayer.innerHTML = factoryVariable.count();
 }
 
+// function lettersOnly(){
+//     var regex = /[^a-z]/gi;
+//     nameTextField.value = nameTextField.value.replace(regex, "");
+//     }
+
+document.getElementById('nameText').addEventListener('keydown', function(e) {
+    const regexer = RegExp('[0-9a-zA-Z]');
+
+    if (!regexer.test(e.key) && e.key != 'backspace') {
+        e.preventDefault();
+        document.getElementById("errorText").innerHTML = "Symbols are not allowed!"
+    }
+});
+
 function clearIt() {
     Object.keys(namesGreeted).forEach(k => delete namesGreeted[k])
 }
@@ -63,8 +77,7 @@ function inputChecker() {
 
 
    
-        
-    // document.getElementById("greetText").innerHTML = "";
+        // document.getElementById("greetText").innerHTML = "";
     // document.getElementById("errorText").innerHTML = "";
 
     var checkedRadioBtn = document.querySelector("input[name='aRadioBut']:checked");
@@ -79,7 +92,10 @@ function inputChecker() {
         counterDisplayer.innerHTML = 0;
     }
         else {
-            factoryVariable.add(nameTextField.value)
+           
+//     
+//    
+               factoryVariable.add(nameTextField.value)
         }
                 
 
@@ -87,9 +103,9 @@ function inputChecker() {
     
    
     
-    factoryVariable.language(language)
+    factoryVariable.language(language);
     
-    greetTextField.innerHTML = factoryVariable.greet(nameTextField.value.trim());
+    greetTextField.innerHTML = factoryVariable.greet(nameTextField.value.trim(), language);
    
     errorTextField.innerHTML = factoryVariable.error(nameTextField.value.trim()); 
 
