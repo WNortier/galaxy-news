@@ -32,11 +32,11 @@ function Greeting(nameList) {
 // }
 
     function greetName(name, language) {
-       
-        let character = '';
+        //var numberTest = regex.test(name);
+        // let character = '';
         character = name.charAt(0).toUpperCase() + (name.slice(1)).toLowerCase();
-        console.log(language)
-        // numberCheck = name.charAt(0);
+        // console.log(language)
+               // numberCheck = name.charAt(0);
         
 
         
@@ -44,15 +44,15 @@ function Greeting(nameList) {
         //     // errorMessage = 'Names cannot contain a number!';
         //     greeting = "Names cannot contain a number!";
         // }
-        var numberTest = regex.test(name);
+        
 
         if (language == '') {
             errorMessage = "Please select a language!"
         }
     
-        if (numberTest ===true) {
-            greeting = "Names cannot contain a number!";
-        }
+        // if (numberTest ===true) {
+        //     errorMessage = "Names cannot contain a number!";
+        // }
         
         else if (language == "English") {
             greeting = "Hello, " + character;
@@ -76,14 +76,13 @@ function Greeting(nameList) {
         var numberTest = regex.test(name);
     
         if (numberTest ===true) {
-            // greeting = "Names cannot contain a number!";
-        // }
+            errorMessage = "Names cannot contain a number!";
+            //errorMessageProvider(name)
 
         // numberCheck = name.charAt(0);
         // if (!isNaN(numberCheck * 1)) {
             // errorMessage = 'Names cannot contain a number!';
-            greeting = "Names cannot contain a number!";
-            errorMessageProvider(name)
+                      
         }
 
       else if (namesGreeted[name] === undefined){
@@ -114,12 +113,15 @@ function Greeting(nameList) {
     }
      
 
-    function errorMessageProvider(name, language) {
+    function errorMessageProvider(name) {
         // var errorMessage = "";
         //let character = "";
-        character = name.charAt(0);
+        // var character = name.charAt(0);
         if (name.length == 0) {
             errorMessage = "Please enter a name!";
+        }
+        else {
+
         }
         // else if (!isNaN(character * 1)) {
         //     errorMessage = 'Names cannot contain a number!';

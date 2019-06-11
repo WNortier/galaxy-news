@@ -10,54 +10,55 @@
     
 </head>
 <body>
-        <div class="topdiv"><p>Greetings Earthling</p></div>
+        <div class="topdiv"><p style="position: relative; top: 12px;text-align:center;font-weight:bold; font-size:20px;">Greetings Earthling</p></div>
 
 
 
     <header id="showcase">
-        <h1 style="color:rgb(92, 86, 92) ">Warwick's Greeting Widget</h1>
       
-                <div class="inputarea" style="margin-bottom: 5px">
-            <h1></h1>
-           Choose a language and type a name to perform a greeting!
-            <button class="theBoxes" type="button" name="button" style="font-family:monospace;">Name</button>
+        <h0>Warwick's Greeting Widget</h0>
+      
+                <div class="inputarea" style="margin-bottom: 250px">
+            <h1>Choose a language and type a name to perform a greeting!</h1>
+            <h1>The widget does not accept numbers or symbols as input!</h1>
+           
+            <button class="theBoxes" type="button" name="button" style="font-family:monospace; font-size:15px">Name</button>
 
             <input class="nameText" id="nameText" type="text" name="thePersonsName" value="" placeholder="">
 
-            <div class="theBoxes entryCounter" id="entryCounter" type="text" name=""style="font-family:monospace; position: relative; top: 0px" value=""></div>
+            <div class="theBoxes entryCounter" id="entryCounter" type="text" name=""style="font-family:monospace; position: relative; top: 0px; font-size:15px; color: black;" value=""></div>
 
         </div>
 
        
-            <div class="radioButtons"form action="languageSelected.html" method="get" onsubmit="return inputChecker()">
+            <div class="radioButtons" style="position: relative; bottom: 250px;" form action="languageSelected.html" method="get" onsubmit="return inputChecker()">
 
-                <input type="radio" name="aRadioBut" id="englishOption" class="radioSelectors" value="English">
-                <span class="label-body" style="padding:1em;color:rgb(29, 28, 29);  font-weight: bold">English</span>
+                <input type="radio" name="aRadioBut" id="englishOption" class="radioSelectors" value="English" >
+                <span class="label-body" style="padding:1em;color:black;  font-weight: bold">English</span>
 
 
                 <input type="radio" name="aRadioBut" id="afrikaansOption" class="radioSelectors" value="Afrikaans">
-                <span class="label-body" style="padding:1em;color:rgb(29, 28, 29);  font-weight: bold">Afrikaans</span>
+                <span class="label-body" style="padding:1em;color:black;  font-weight: bold">Afrikaans</span>
 
                 <input type="radio" name="aRadioBut" id="xhosaOption" class="radioSelectors" value="Xhosa">
-                <span class="label-body" style="padding:1em;color:rgb(29, 28, 29); font-weight: bold">Xhosa</span>
+                <span class="label-body" style="padding:1em;color:black; font-weight: bold">Xhosa</span>
 
             </div>
 
-
-        <button class="theBoxes greetingGenerator" id="greetingGenerator" type="button" name="button"
-            style="font-family:monospace;">Greet Me</button>
-        <button class="theBoxes resetMe" type="button" name="button"
-            style="font-family:monospace; margin-top: 10px;">Reset</button>
+<div style="position: relative; bottom: 250px">
+        <button class="theBoxes greetingGenerator" id="greetingGenerator" type="button" name="button"style="font-family:monospace; font-size:15px">Greet Me</button>
+        <button class="theBoxes resetMe" type="button" name="button"style="font-family:monospace; margin-top: 10px; font-size:15px">Reset</button>
             
-            <div class="greetText" id="greetText"style="position: relative; top: 50px"><h4></h4></div>
-            <div class="errorText" id="errorText" style="position: relative; top: 50px"><h5></h5></div>
-            </header>
+            <div class="greetText" id="greetText"style="position: relative; top: 80px"><h4></h4></div>
+            <div class="errorText" id="errorText" style="position: relative; top: 80px"><h5></h5></div>
+        </div>
+        </header>
 
     </div>
     
     <div class = "section-b">
 
-<div class="box2" style="text-align: center;font-weight:bold; font-size:20px">Welcome To The Future</div>
+<div class="box2"><p style="position: relative; top: 12px;text-align:center;font-weight:bold; font-size:20px;">Welcome To The Future</p></div>
 <div class="box3" style="display: flex; flex-direction: flex-end;"></div>
     </div>
 

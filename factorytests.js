@@ -45,12 +45,12 @@ describe('input error handler' , function(){
     
     it("Should return 'an error if the name text input field is blank.", function(){
         var factoryVariable = Greeting();
-        assert.deepEqual("Please enter a name!", factoryVariable.error("", "English"));
+        assert.deepEqual("Please enter a name!", factoryVariable.error("",));
     });
 
-    it("Should return 'an error if a language is not selected.", function(){
+    it("Should return nothing if a correctly punctuated name is entered.", function(){
         var factoryVariable = Greeting();
-        assert.deepEqual("Please select a language!", factoryVariable.error("Warwick", ""));
+        assert.deepEqual("", factoryVariable.error("Warwick"));
     });
 
 })

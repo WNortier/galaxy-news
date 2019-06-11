@@ -50,11 +50,11 @@ window.onload = function(){
 //     }
 
 document.getElementById('nameText').addEventListener('keydown', function(e) {
-    const regexer = RegExp('[0-9a-zA-Z]');
+    const regexer = RegExp('[a-zA-Z]');
 
     if (!regexer.test(e.key) && e.key != 'backspace') {
         e.preventDefault();
-        document.getElementById("errorText").innerHTML = "Symbols are not allowed!"
+        document.getElementById("errorText").innerHTML = "Symbols and numbers are not allowed!"
     }
 });
 
@@ -95,7 +95,7 @@ function inputChecker() {
            
 //     
 //    
-               factoryVariable.add(nameTextField.value)
+document.getElementById("errorText").innerHTML = factoryVariable.add(nameTextField.value)
         }
                 
 
@@ -107,6 +107,7 @@ function inputChecker() {
     
     greetTextField.innerHTML = factoryVariable.greet(nameTextField.value.trim(), language);
    
+
     errorTextField.innerHTML = factoryVariable.error(nameTextField.value.trim()); 
 
     counterDisplayer.innerHTML = factoryVariable.count();
