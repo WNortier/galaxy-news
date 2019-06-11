@@ -34,10 +34,10 @@ describe('greeting generator' , function(){
         assert.deepEqual("Molo, John", factoryVariable.greet("John", "Xhosa"));
     });
 
-    it("Should return an error stating: 'Names cannot contain a number!", function(){
-        var factoryVariable = Greeting();
-        assert.deepEqual("Names cannot contain a number!", factoryVariable.greet("1John", "English"));
-    });
+    // it("Should return an error stating: 'Please select a language!' if no language has been selected", function(){
+    //     var factoryVariable = Greeting();
+    //     assert.deepEqual("Please select a language!", factoryVariable.greet("John", ""));
+    // });
 
 })
 

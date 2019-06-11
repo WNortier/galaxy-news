@@ -33,7 +33,7 @@ function Greeting(nameList) {
 
     function greetName(name, language) {
         //var numberTest = regex.test(name);
-        // let character = '';
+        let character = '';
         character = name.charAt(0).toUpperCase() + (name.slice(1)).toLowerCase();
         // console.log(language)
                // numberCheck = name.charAt(0);
@@ -44,17 +44,17 @@ function Greeting(nameList) {
         //     // errorMessage = 'Names cannot contain a number!';
         //     greeting = "Names cannot contain a number!";
         // }
-        
-
-        if (language == '') {
+        if (name.length != 0 && language == '') {
             errorMessage = "Please select a language!"
         }
+
+       
     
         // if (numberTest ===true) {
         //     errorMessage = "Names cannot contain a number!";
         // }
         
-        else if (language == "English") {
+         if (language == "English") {
             greeting = "Hello, " + character;
         } else if (language == "Afrikaans") {
             greeting = "Hallo, " + character;
@@ -113,13 +113,16 @@ function Greeting(nameList) {
     }
      
 
-    function errorMessageProvider(name) {
+    function errorMessageProvider(name, language) {
         // var errorMessage = "";
         //let character = "";
         // var character = name.charAt(0);
+       
+
         if (name.length == 0) {
             errorMessage = "Please enter a name!";
         }
+
         else {
 
         }
