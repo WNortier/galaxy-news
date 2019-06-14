@@ -44,10 +44,7 @@ window.onload = function(){
     counterDisplayer.innerHTML = factoryVariable.count();
 }
 
-// function lettersOnly(){
-//     var regex = /[^a-z]/gi;
-//     nameTextField.value = nameTextField.value.replace(regex, "");
-//     }
+
 
 document.getElementById('nameText').addEventListener('keydown', function(e) {
     const regexer = RegExp('[a-zA-Z]');
