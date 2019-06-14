@@ -45,7 +45,6 @@ window.onload = function(){
 }
 
 
-
 document.getElementById('nameText').addEventListener('keydown', function(e) {
     const regexer = RegExp('[a-zA-Z]');
 
