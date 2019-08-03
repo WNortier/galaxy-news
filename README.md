@@ -1,1 +1,1 @@
-# greetings-widget-factory-function
+# greetings-widget
