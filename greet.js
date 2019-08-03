@@ -1,31 +1,32 @@
+{
+//INNERHTML 
+var greetTextField = document.querySelector(".greetText");
+var errorTextField = document.querySelector(".errorText");
+var counterDisplayer = document.querySelector(".entryCounter");
+//INPUT_FIELDS
+
+var nameTextField = document.querySelector(".nameText");
+//BUTTONS
 var radioSelectorButtonsGlobal = document.querySelectorAll(".radioSelectors");
 var radioSelectorButtons = document.querySelector(".radioSelectors1");
 var radioSelectorButtons = document.querySelector(".radioSelectors2");
 var radioSelectorButtons = document.querySelector(".radioSelectors3");
-var nameTextField = document.querySelector(".nameText");
 var greetMeButton = document.querySelector(".greetingGenerator");
 var resetButton = document.querySelector(".resetMe");
-var greetTextField = document.querySelector(".greetText");
-var errorTextField = document.querySelector(".errorText");
-var counterDisplayer = document.querySelector(".entryCounter");
+}
 
+//retrieving names from previous session (localStorage)
+if (localStorage['namesPassed']) {
 
-
-
-if(localStorage['namesPassed']){
-
-    //retrieving names from localStorage before the function is executed to know who was greeted before
-    
     var nameList = JSON.parse(localStorage.getItem("namesPassed"));
     console.log(nameList)
-   
-    }else{
-        var nameList;
-    }
-    
-    
+} else {
+    var nameList;
+}
 
-    var factoryVariable = Greeting(nameList); 
+
+
+var factoryVariable = Greeting(nameList);
 
 
 
@@ -40,12 +41,12 @@ localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
 
 
 
-window.onload = function(){
+window.onload = function () {
     counterDisplayer.innerHTML = factoryVariable.count();
 }
 
 
-document.getElementById('nameText').addEventListener('keydown', function(e) {
+document.getElementById('nameText').addEventListener('keydown', function (e) {
     const regexer = RegExp('[a-zA-Z]');
 
     if (!regexer.test(e.key) && e.key != 'backspace') {
@@ -72,58 +73,56 @@ function fullReset() {
 function inputChecker() {
 
 
-   
-        // document.getElementById("greetText").innerHTML = "";
+
+    // document.getElementById("greetText").innerHTML = "";
     // document.getElementById("errorText").innerHTML = "";
 
     var checkedRadioBtn = document.querySelector("input[name='aRadioBut']:checked");
     if (checkedRadioBtn) {
         var language = checkedRadioBtn.value
-    }
-    else {
+    } else {
         var language = "";
     }
-    
+
     if (nameTextField.value.length == 0 || language == "") {
         counterDisplayer.innerHTML = 0;
+    } else {
+
+        //     
+        //    
+        document.getElementById("errorText").innerHTML = factoryVariable.add(nameTextField.value)
     }
-        else {
-           
-//     
-//    
-document.getElementById("errorText").innerHTML = factoryVariable.add(nameTextField.value)
-        }
-                
 
 
-    
-   
-    
+
+
+
+
     factoryVariable.language(language);
-    
-    greetTextField.innerHTML = factoryVariable.greet(nameTextField.value.trim(), language);
-   
 
-    errorTextField.innerHTML = factoryVariable.error(nameTextField.value.trim()); 
+    greetTextField.innerHTML = factoryVariable.greet(nameTextField.value.trim(), language);
+
+
+    errorTextField.innerHTML = factoryVariable.error(nameTextField.value.trim());
 
     counterDisplayer.innerHTML = factoryVariable.count();
-    
+
     localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
-   
+
     // if (language.length == 0  && nameTextField.value.length == 0){
     //     document.getElementById("greetText").innerHTML = "";
     // }
-    if (language.length != 0  && nameTextField.value.length == 0){
+    if (language.length != 0 && nameTextField.value.length == 0) {
         document.getElementById("greetText").innerHTML = "";
     }
-    if (language.length != 0  && nameTextField.value.length != 0){
+    if (language.length != 0 && nameTextField.value.length != 0) {
         document.getElementById("errorText").innerHTML = "";
 
     }
- 
-   
 
-    
+
+
+
     // counterDisplayer.innerHTML = localStorage['greetings']
 }
 
