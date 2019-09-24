@@ -1,48 +1,34 @@
 {
-//INNERHTML 
-var greetTextField = document.querySelector(".greetText");
-var errorTextField = document.querySelector(".errorText");
-var counterDisplayer = document.querySelector(".entryCounter");
-//INPUT_FIELDS
-
-var nameTextField = document.querySelector(".nameText");
-//BUTTONS
-var radioSelectorButtonsGlobal = document.querySelectorAll(".radioSelectors");
-var radioSelectorButtons = document.querySelector(".radioSelectors1");
-var radioSelectorButtons = document.querySelector(".radioSelectors2");
-var radioSelectorButtons = document.querySelector(".radioSelectors3");
-var greetMeButton = document.querySelector(".greetingGenerator");
-var resetButton = document.querySelector(".resetMe");
+    //INNERHTML 
+    var greetTextField = document.querySelector(".greetText");
+    var errorTextField = document.querySelector(".errorText");
+    var counterDisplayer = document.querySelector(".entryCounter");
+    //INPUT_FIELDS
+    var nameTextField = document.querySelector(".nameText");
+    //BUTTONS
+    var radioSelectorButtonsGlobal = document.querySelectorAll(".radioSelectors");
+    var radioSelectorButtons = document.querySelector(".radioSelectors1");
+    var radioSelectorButtons = document.querySelector(".radioSelectors2");
+    var radioSelectorButtons = document.querySelector(".radioSelectors3");
+    var greetMeButton = document.querySelector(".greetingGenerator");
+    var resetButton = document.querySelector(".resetMe");
 }
 
 //retrieving names from previous session (localStorage)
-if (localStorage['namesPassed']) {
+if (localStorage['previouslyGreeted']) {
 
-    var nameList = JSON.parse(localStorage.getItem("namesPassed"));
+    var nameList = JSON.parse(localStorage.getItem("previouslyGreeted"));
     console.log(nameList)
 } else {
     var nameList;
 }
 
+var GreetingsFactory = Greeting(nameList);
 
-
-var factoryVariable = Greeting(nameList);
-
-
-
-
-//localStorage key is set to the names(converted to a string from an object) retrieved from factoryVariable.names() 
-//the factory: function whosBeenGreeted() {return namesGreeted}
-var greetData = JSON.parse(localStorage.getItem("namesPassed"));
-
-localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
-// 
-
-
-
+localStorage.setItem('previouslyGreeted', JSON.stringify(GreetingsFactory.names()));
 
 window.onload = function () {
-    counterDisplayer.innerHTML = factoryVariable.count();
+    counterDisplayer.innerHTML = GreetingsFactory.count();
 }
 
 
@@ -56,14 +42,14 @@ document.getElementById('nameText').addEventListener('keydown', function (e) {
 });
 
 function clearIt() {
-    Object.keys(namesGreeted).forEach(k => delete namesGreeted[k])
+    Object.keys(namesGreeted).forEach(nameEntry => delete namesGreeted[nameEntry])
 }
 
 function fullReset() {
     counterDisplayer.innerHTML = 0;
     localStorage.clear();
     document.getElementById("greetingGenerator").disabled = false;
-    factoryVariable.clear();
+    GreetingsFactory.clear();
     document.getElementById("nameText").value = "";
     document.getElementById("greetText").innerHTML = "";
     document.getElementById("errorText").innerHTML = "";
@@ -72,10 +58,8 @@ function fullReset() {
 
 function inputChecker() {
 
+    var lengthOfName = nameTextField.value.length
 
-
-    // document.getElementById("greetText").innerHTML = "";
-    // document.getElementById("errorText").innerHTML = "";
 
     var checkedRadioBtn = document.querySelector("input[name='aRadioBut']:checked");
     if (checkedRadioBtn) {
@@ -84,46 +68,27 @@ function inputChecker() {
         var language = "";
     }
 
-    if (nameTextField.value.length == 0 || language == "") {
+    if (lengthOfName == 0 || language == "") {
         counterDisplayer.innerHTML = 0;
-    } else {
-
-        //     
-        //    
-        document.getElementById("errorText").innerHTML = factoryVariable.add(nameTextField.value)
+    } else {  
+        document.getElementById("errorText").innerHTML = GreetingsFactory.add(nameTextField.value)
     }
 
+    greetTextField.innerHTML = GreetingsFactory.greet(nameTextField.value.trim(), language);
 
+    errorTextField.innerHTML = GreetingsFactory.error(nameTextField.value.trim());
 
+    counterDisplayer.innerHTML = GreetingsFactory.count();
 
+    localStorage.setItem('previouslyGreeted', JSON.stringify(GreetingsFactory.names()));
 
-
-    factoryVariable.language(language);
-
-    greetTextField.innerHTML = factoryVariable.greet(nameTextField.value.trim(), language);
-
-
-    errorTextField.innerHTML = factoryVariable.error(nameTextField.value.trim());
-
-    counterDisplayer.innerHTML = factoryVariable.count();
-
-    localStorage.setItem('namesPassed', JSON.stringify(factoryVariable.names()));
-
-    // if (language.length == 0  && nameTextField.value.length == 0){
-    //     document.getElementById("greetText").innerHTML = "";
-    // }
-    if (language.length != 0 && nameTextField.value.length == 0) {
+    if (language.length != 0 && lengthOfName == 0) {
         document.getElementById("greetText").innerHTML = "";
     }
-    if (language.length != 0 && nameTextField.value.length != 0) {
+    if (language.length != 0 && lengthOfName != 0) {
         document.getElementById("errorText").innerHTML = "";
 
     }
-
-
-
-
-    // counterDisplayer.innerHTML = localStorage['greetings']
 }
 
 greetMeButton.addEventListener('click', inputChecker);
