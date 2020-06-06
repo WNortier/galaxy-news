@@ -1,1 +1,1 @@
-# greetings-widget
+# galaxy-news
