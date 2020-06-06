@@ -2,68 +2,155 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./styles/button.scss">
-    <link rel="stylesheet" href="./styles/style.css">
-    <title>Document</title>
-    
-</head>
-<body>
-        <div class="topdiv"><p style="position: relative; top: 12px;text-align:center;font-weight:bold; font-size:20px;">Greetings Earthling</p></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link rel="stylesheet" href="./css/button.css" /> -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <link rel="stylesheet" href="./css/loader.css" />
+  <link rel="stylesheet" href="./css/grid.css" />
+  <link rel="stylesheet" href="./css/styles2.css" />
+  <!-- <link rel="stylesheet" href="./css/simple-grid.css"> -->
 
-
-
-    <header id="showcase">
-      
-        <h0>Warwick's Greeting Widget</h0>
-      
-                <div class="inputarea" style="margin-bottom: 250px">
-            <h1>Choose a language and type a name to perform a greeting!</h1>
-            <h1>The widget does not accept numbers or symbols as input!</h1>
-           
-            <button class="theBoxes" type="button" name="button" style="font-family:monospace; font-size:15px">Name</button>
-
-            <input class="nameText" id="nameText" type="text" name="thePersonsName" value="" placeholder="">
-
-            <div class="theBoxes entryCounter" id="entryCounter" type="text" name=""style="font-family:monospace; position: relative; top: 0px; font-size:15px; color: black;" value=""></div>
-
-        </div>
-
-       
-            <div class="radioButtons" style="position: relative; bottom: 250px;" form action="languageSelected.html" method="get" onsubmit="return inputChecker()">
-
-                <input type="radio" name="aRadioBut" id="englishOption" class="radioSelectors" value="English" >
-                <span class="label-body" style="padding:1em;color:black;  font-weight: bold">English</span>
-
-
-                <input type="radio" name="aRadioBut" id="afrikaansOption" class="radioSelectors" value="Afrikaans">
-                <span class="label-body" style="padding:1em;color:black;  font-weight: bold">Afrikaans</span>
-
-                <input type="radio" name="aRadioBut" id="xhosaOption" class="radioSelectors" value="Xhosa">
-                <span class="label-body" style="padding:1em;color:black; font-weight: bold">Xhosa</span>
-
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <title>Greetings Widget</title>
+  <script id="handlebars-template" type="text/x-handlebars-template">
+      {{#each this}}
+      <div class="grid-item-news">
+        <h4>{{title}}</h4>
+        {{#if urlToImage}}
+        <div class="grid-item-container-news">
+          <img
+            style='width:170px; float:right;'
+            src="{{urlToImage}}"
+            alt='no image found'/>
             </div>
+        {{/if}}
+        <div class="grid-item-container-news">
+            <p>
+              {{description}}
+            </p>
+            </div>
+            <div class="grid-item-container-news">
+            <a target="_blank" href="{{url}}">
+              <input type="button" value="Read more">
+            </a>
+            </div>
+            <p>
+              <i>
+                {{author}}
+              </i>
+            </p>
+      </div>
+      {{/each}}
+  </script>
+</head>
 
-<div style="position: relative; bottom: 250px">
-        <button class="theBoxes greetingGenerator" id="greetingGenerator" type="button" name="button"style="font-family:monospace; font-size:15px">Greet Me</button>
-        <button class="theBoxes resetMe" type="button" name="button"style="font-family:monospace; margin-top: 10px; font-size:15px">Reset</button>
-            
-            <div class="greetText" id="greetText"style="position: relative; top: 80px"><h4></h4></div>
-            <div class="errorText" id="errorText" style="position: relative; top: 80px"><h5></h5></div>
+<body>
+  <!-- <script>
+    document.querySelector('.container').classList.add('fade-out');
+  </script> -->
+  <video autoplay muted loop id="video">
+    <source src="./stars.mp4" type="video/mp4" />
+  </video>
+
+  <!-- <div class="flexbox main-loader">
+      <div class="loader">
+      </div>
+    </div> -->
+
+  <div class="" id="header">
+    <div class="header-container">
+      <a onclick="vanish()" class="predator"><img
+          src="https://www.animatedimages.org/data/media/33/animated-alien-and-extraterrestrial-image-0185.gif"
+          border="0" alt="animated-alien-and-extraterrestrial-image-0185" /></a>
+      <h1>Galaxy News </h1>
+    </div>
+  </div>
+
+  <div class="container fade">
+
+    <section id="marquee">
+      <div class="marquee flexbox">
+        <marquee scrolldelay="10" direction="right" behavior="scroll">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Galaxy
+            news, cupiditate.
+          </p>
+        </marquee>
+      </div>
+    </section>
+
+    <!-- CONTENT HERE -->
+    <section id="main">
+
+      <div class="grid-container">
+        <div class="grid-item">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ab et vitae similique repellendus
+            quisquam dolorum iste reprehenderit laborum, modi velit voluptas obcaecati odit fugiat dolores ad adipisci
+            quod ipsum numquam quidem? Asperiores, hic cupiditate! Vel ipsum quae neque illo beatae perferendis aliquid
+            voluptas ex. Fugit impedit facere asperiores saepe eos et praesentium blanditiis, in totam eius at,
+            excepturi odit mollitia illo consequuntur quos? Asperiores libero cumque laboriosam at facilis tenetur quos
+            sequi modi dolores optio, illo nulla soluta sint architecto ullam, aliquam molestiae voluptate non
+            consequuntur id exercitationem sed? Ipsum vitae cumque, adipisci dicta provident aut inventore sunt
+            voluptatem dolor ullam a accusantium aliquam, quam distinctio cupiditate quidem quos quo numquam nam atque!
+            Corrupti voluptas maiores repudiandae itaque debitis deleniti similique, expedita perspiciatis, vitae
+            veritatis non dolore impedit harum quidem temporibus quos quaerat pariatur nostrum molestiae recusandae aut
+            vel earum. Magni quis voluptatum quos ullam ipsam nemo eos laboriosam.
+          </p>
+          <div class="grid-item-container">
+            <input type="text" />
+          </div>
+          <div class="grid-item-container">
+            <input type="button" onclick="alert(1)" value="Greet">
+          </div>
         </div>
-        </header>
+        <div class="grid-item">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
+            culpa expedita accusantium, molestiae numquam nihil aliquam eius
+            unde recusandae repellat necessitatibus minima voluptate laudantium
+            inventore illo harum quis rerum sed perspiciatis nostrum iste!
+          </p>
+          <div class="grid-item-container">
+            <audio id="myAudio" loop controls>
+              <source src="./Arcek-Inframundo.mp3" type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
+            culpa expedita accusantium, molestiae numquam nihil aliquam eius
+            unde recusandae repellat necessitatibus minima voluptate laudantium
+            inventore illo harum quis rerum sed perspiciatis nostrum iste!
+          </p>
+          <div class="grid-item-container">
+            <h1>🐲</h1>
+            <input type="button"
+              onclick="`${Math.ceil(Math.random()*100) > 60 ? prompt('You have won! Enter email to claim your prize:') : alert('Your computer has been infected by dangerous malware!')}`"
+              value="Lottery">
+          </div>
+        </div>
+        <!-- <div class="grid-item flexbox">
+          <div class="loader"></div>
+        </div>-->
+      </div>
+  </div>
+  </section>
+
+  <section id="news">
+    <div class="grid-container news results">
 
     </div>
-    
-    <div class = "section-b">
+  </section>
 
-<div class="box2"><p style="position: relative; top: 12px;text-align:center;font-weight:bold; font-size:20px;">Welcome To The Future</p></div>
-<div class="box3" style="display: flex; flex-direction: flex-end;"></div>
-    </div>
-
-    <script src="./greeting-service.js/"></script>
-    <script src="greet.js"></script>
+  <script src="./mousetrail.js"></script>
+  <script src="./news.js"></script>
+  <script src="./vendors.js"></script>
 </body>
+
 </html>
