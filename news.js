@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
           newsCards.forEach((el) => {
             el.style.visibility = 'visible';
           });
-        }, 2500);
+        }, 5000);
       })
       .catch((error) => {
         console.log(error);
