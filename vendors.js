@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         overlay.style.display = 'none';
-        radio.play();
-      }, 2300);
+        // radio.play();
+      }, 2000);
       document.body.setAttribute('style', 'overflow-y: visible');
-    }, 3000);
+    }, 1000);
   };
 });
 
