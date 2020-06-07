@@ -7,8 +7,8 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <!-- <link rel="stylesheet" href="./css/button.css" /> -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script crossorigin="anonymous" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <link rel="stylesheet" href="./css/loader.css" />
   <link rel="stylesheet" href="./css/grid.css" />
   <link rel="stylesheet" href="./css/styles2.css" />
@@ -17,34 +17,44 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
   <title>Greetings Widget</title>
   <script id="handlebars-template" type="text/x-handlebars-template">
+    {{#if this}}
       {{#each this}}
       <div class="grid-item-news">
+          <div class="loader">
+        </div>
         <h4>{{title}}</h4>
         {{#if urlToImage}}
-        <div class="grid-item-container-news">
-          <img
-            style='width:170px; float:right;'
-            src="{{urlToImage}}"
-            alt='no image found'/>
-            </div>
+          <div class="flex-item-container-news">
+              <img
+              style='width:170px; float:right;'
+              src="{{urlToImage}}"
+              alt='no image found'/>
+          </div>
         {{/if}}
-        <div class="grid-item-container-news">
-            <p>
-              {{description}}
-            </p>
-            </div>
-            <div class="grid-item-container-news">
-            <a target="_blank" href="{{url}}">
-              <input type="button" value="Read more">
-            </a>
-            </div>
-            <p>
-              <i>
-                {{author}}
-              </i>
-            </p>
+        <div class="flex-item-container-news">
+          <p>
+            {{description}}
+          </p>
+        </div>
+        <div class="flex-item-container-news">
+          <a target="_blank" href="{{url}}">
+            <input type="button" value="Read more">
+          </a>
+        </div>
+        <div class="flex-item-container-news">
+          <p>
+            {{author}}
+          </p>
+        </div>
       </div>
       {{/each}}
+      {{else}}
+      <div>
+        <p>
+          Cant find any news using that keyword.
+        </p>
+      </div>
+    {{/if}}
   </script>
 </head>
 
@@ -56,10 +66,7 @@
     <source src="./stars.mp4" type="video/mp4" />
   </video>
 
-  <!-- <div class="flexbox main-loader">
-      <div class="loader">
-      </div>
-    </div> -->
+
 
   <div class="" id="header">
     <div class="header-container">
@@ -74,8 +81,8 @@
 
     <section id="marquee">
       <div class="marquee flexbox">
-        <marquee scrolldelay="10" direction="right" behavior="scroll">
-          <p>
+        <marquee scrolldelay="10" direction="left" behavior="scroll">
+          <p class="headline">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Galaxy
             news, cupiditate.
           </p>
@@ -105,7 +112,7 @@
             <input type="text" />
           </div>
           <div class="grid-item-container">
-            <input type="button" onclick="alert(1)" value="Greet">
+            <input type="button" onclick="alert(1)" value="Apply">
           </div>
         </div>
         <div class="grid-item">
@@ -116,8 +123,8 @@
             inventore illo harum quis rerum sed perspiciatis nostrum iste!
           </p>
           <div class="grid-item-container">
-            <audio id="myAudio" loop controls>
-              <source src="./Arcek-Inframundo.mp3" type="audio/mp3" />
+            <audio id="#" loop controls>
+              <source src="#" type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
           </div>
@@ -137,22 +144,20 @@
               value="Lottery">
           </div>
         </div>
-        <!-- <div class="grid-item flexbox">
-          <div class="loader"></div>
-        </div>-->
+  
       </div>
   </div>
   </section>
 
   <section id="news">
-    <div class="grid-container news results">
+    <div class="grid-container-news results">
 
     </div>
   </section>
 
-  <script src="./mousetrail.js"></script>
-  <script src="./news.js"></script>
-  <script src="./vendors.js"></script>
+  <!-- <script crossorigin="anonymous" src="./mousetrail.js"></script> -->
+  <script crossorigin="anonymous" src="./news.js"></script>
+  <script crossorigin="anonymous" src="./vendors.js"></script>
 </body>
 
 </html>

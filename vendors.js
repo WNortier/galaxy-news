@@ -1,8 +1,7 @@
 //@ts-nocheck
 document.addEventListener('DOMContentLoaded', () => {
-  let mainloader = document.querySelector('.main-loader');
+  // let mainloader = document.querySelector('.main-loader');
   let container = document.querySelector('.container');
-  let gridItems = document.querySelectorAll('.grid-item');
   let predator = document.querySelector('.predator');
   // var x = document.getElementById('myAudio');
 
