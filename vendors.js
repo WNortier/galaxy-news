@@ -78,7 +78,6 @@ const lottery = () => {
       }
       case false: {
         return malware();
-        // return alert('Your computer has been infected by dangerous malware!');
       }
     }
   }, 1000);
@@ -86,7 +85,7 @@ const lottery = () => {
 
 const malware = () => {
   confirm(
-    `CONGRATULATIONS: You are todays lucky visitor for: \n${String(
+    `CONGRATULATIONS!!! 🎉 You are todays lucky visitor for: \n${String(
       new Date()
     )}\nPlease complete this short survey to say "Thank you" and you will stand a chance to get a Samsung Galaxy S10!`
   );
