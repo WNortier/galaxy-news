@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return head.description;
       });
 
-      console.log(headlines.length);
       let headlineMarquee = document.querySelector('.headline');
       headlineMarquee.innerHTML = headlines[0];
       let index = 1;
