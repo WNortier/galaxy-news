@@ -34,6 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         case 'Parsing the Spaghetti...':
           {
+            loaderText.innerHTML = `Configuring Video Codex...`;
+          }
+          break;
+        case 'Configuring Video Codex...':
+          {
+            loaderText.innerHTML = `Please wait...`;
+          }
+          break;
+        case 'Please wait...':
+          {
             loaderText.innerHTML = `Loading...`;
           }
           break;
