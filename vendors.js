@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const video = document.querySelector('#stars');
   const overlay = document.querySelector('.overlay');
   const radio = document.querySelector('#radio');
+  const mainLoader = document.querySelector('.loader-primary');
 
   var imageOffset = 0;
   setInterval(() => {
@@ -42,10 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   video.oncanplay = () => {
     setTimeout(() => {
-      overlay.style.display = 'none';
-      radio.play();
+      mainLoader.style.display = 'none';
+      loaderText.style.display = 'none';
+      overlay.classList.add('hidden');
+
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        radio.play();
+      }, 2300);
       document.body.setAttribute('style', 'overflow-y: visible');
-      document.body.classList.remove('fade-out');
     }, 3000);
   };
 });
