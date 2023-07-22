@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let template = Handlebars.compile(templateSource);
   let results = document.querySelector('.results');
-  const requestUrl = `https://galaxy-news-server.herokuapp.com/get-news`;
+  const requestUrl = `https://galaxy-news-server.onrender.com/get-news`;
 
   const news = [];
 
