@@ -1,7 +1,6 @@
 //@ts-nocheck
 document.addEventListener('DOMContentLoaded', () => {
   let templateSource = document.querySelector('#handlebars-template').innerHTML;
-
   let template = Handlebars.compile(templateSource);
   let results = document.querySelector('.results');
   const requestUrl = `https://galaxy-news-server.onrender.com/get-news`;
