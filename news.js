@@ -1,11 +1,9 @@
 //@ts-nocheck
 document.addEventListener('DOMContentLoaded', () => {
-  let templateSource = document.querySelector('#handlebars-template').innerHTML;
-
-  let template = Handlebars.compile(templateSource);
-  let results = document.querySelector('.results');
-  const requestUrl = `https://galaxy-news-server.herokuapp.com/get-news`;
-
+  const templateSource = document.querySelector('#handlebars-template').innerHTML;
+  const template = Handlebars.compile(templateSource);
+  const results = document.querySelector('.results');
+  const requestUrl = `https://galaxy-news-server.onrender.com/get-news`;
   const news = [];
 
   const getNews = async () => {
