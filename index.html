@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,7 +55,7 @@
 </head>
 
 <body>
-  s <div class="overlay">
+  <div class="overlay">
     <div class="loader-primary">
     </div>
     <h2 class="loader-text">Loading...</h2>
@@ -66,8 +67,7 @@
 
   <div class="" id="header">
     <div class="header-container">
-      <a onclick="vanish()" class="predator"><img
-          src="https://www.animatedimages.org/data/media/33/animated-alien-and-extraterrestrial-image-0185.gif"
+      <a onclick="vanish()" class="predator"><img src="./assets/animated-alien-and-extraterrestrial-image-0185.gif"
           border="0" alt="animated-alien-and-extraterrestrial-image-0185" /></a>
       <h1>Galaxy News</h1>
     </div>
@@ -79,15 +79,13 @@
       <div class="marquee flexbox">
         <marquee scrolldelay="10" direction="left" behavior="scroll">
           <p class="headline">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Galaxy
-            news, cupiditate.
           </p>
         </marquee>
       </div>
     </section>
 
-    <section id="main" class="custom">
-      <div class="grid-container">
+    <section id="main" class="custom ">
+      <div class="hero">
         <div class="grid-item">
           <!-- <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ab et vitae similique repellendus
@@ -95,11 +93,16 @@
             quod ipsum numquam quidem?
           </p> -->
           <div class="grid-item-container">
-            <img src="./assets/fmr.png" height=100 alt="fmr" title="📻 Fine Music Radio">
-            <audio id="radio" loop controls>
-              <source src="http://edge.iono.fm/xice/fmr_live_high.aac" type="audio/mp3" title="Fine Music Radio" />
-              Your browser does not support the audio element.
-            </audio>
+            <p>
+              Tune in and ride the frequencies of our space radio as you browse the news feed
+            </p>
+            <div class="radio">
+              <img src="./assets/fmr.png" height=100 alt="fmr" title="📻 Fine Music Radio">
+              <audio id="radio" loop controls>
+                <source src="http://edge.iono.fm/xice/fmr_live_high.aac" type="audio/mp3" title="Fine Music Radio" />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
           </div>
         </div>
         <!-- 
@@ -113,7 +116,7 @@
           <div class="grid-item-container">
           </div>
         </div> -->
-        <div class="grid-item">
+        <!-- <div class="grid-item">
           <p>
             Take a chance, you never know what the universe might have to offer.
           </p>
@@ -122,16 +125,17 @@
             <input type="button" onclick="lottery()" value="Lottery">
           </div>
         </div>
+      </div> -->
       </div>
-  </div>
-  </section>
+    </section>
 
-  <section id="news">
-    <div class="grid-container-news results">
-    </div>
-  </section>
-  <script crossorigin="anonymous" src="./assets/mousetrail.js"></script>
-  <script crossorigin="anonymous" src="./news.js"></script>
-  <script crossorigin="anonymous" src="./vendors.js"></script>
+    <section id="news">
+      <div class="grid-container-news results">
+      </div>
+    </section>
+    <script crossorigin="anonymous" src="./assets/mousetrail.js"></script>
+    <script crossorigin="anonymous" src="./news.js"></script>
+    <script crossorigin="anonymous" src="./vendors.js"></script>
 </body>
+
 </html>

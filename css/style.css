@@ -16,6 +16,22 @@
   z-index: -1;
 }
 
+.radio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
 .predator {
   position: fixed;
   top: 0;
